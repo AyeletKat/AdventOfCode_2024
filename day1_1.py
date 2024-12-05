@@ -1,6 +1,9 @@
-# Description: Advent of Code 2024 Day 1 Part 1
+# Description: Advent of Code 2024 Day 1
+
+# Part 1
 # Running time complexity: O(n*log(n)) due to use of sorting algorithm.
 # (n being the number of "locations found" - lines in input.)
+
 input = open("aof_1_1_input.txt", "r")
 lines = input.readlines()
 list1, list2 = [], []
@@ -21,5 +24,13 @@ for i in range(len(list1)):
     sum += abs(int(list1[i]) - int(list2[i]))
 print(sum)
 
-# Yay! It worked correctly! :)
+# Part 2
+from collections import Counter
+# O(n)
+count2 = Counter(list2)
+similarity = 0
+for i in range(len(list1)):
+    similarity += int(list1[i])*count2[list1[i]]
+print(similarity)
 
+# Yay! It worked correctly! :)
